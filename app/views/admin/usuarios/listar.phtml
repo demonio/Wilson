@@ -1,0 +1,16 @@
+
+<form method="post">
+    <input type="text" name="correo" value="<?=$usuario->correo?>" placeholder="Correo..."><br>
+    <input type="password" name="clave" placeholder="Clave..."><br>
+    <button type="submit" name="accion" value="crear"><?=_('Crear')?></button>
+
+    <?php if ( ! empty($usuario->idu)): ?>
+        <button type="submit" name="accion" value="actualizar"><?=_('Actualizar')?></button>
+        <button type="submit" name="accion" value="eliminar"><?=_('Eliminar')?></button>
+        <input type="hidden" name="idu" value="<?=$usuario->idu?>">
+    <?php endif; ?>
+</form>
+<hr>
+<?php foreach($usuarios as $usu): ?>
+    <h2><a href="/admin/usuarios/listar/<?=$usu->idu?>"><?=$usu->correo?></a></h2>
+<?php endforeach; ?>
